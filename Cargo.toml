@@ -1,0 +1,22 @@
+[package]
+name = "die-scribble"
+description = "A browser for a directory of markdown notes in a DIE buffer: search one by name and open it, as an extension outside DIE"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+publish = false
+
+# An extension, outside DIE: it depends on die-core only, so it's platform-neutral.
+# DIE's crates come from git at `main`, never a `rev`, so every repository in one build resolves
+# to the same die-core. A local, gitignored `.cargo/config.toml` patches them to a DIE checkout
+# for development (dev-config.example.toml).
+[dependencies]
+die-core = { git = "https://github.com/0xDEADBEE7/die", branch = "main" }
+
+[dev-dependencies]
+die-test-cap = { git = "https://github.com/0xDEADBEE7/die", branch = "main" }
+die-vim = { git = "https://github.com/0xDEADBEE7/die", branch = "main" }
+
+[lints.rust]
+unsafe_code = "forbid"

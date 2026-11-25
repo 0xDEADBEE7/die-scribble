@@ -1,0 +1,15 @@
+# Develop die-scribble beside a DIE checkout: copy this file to `.cargo/config.toml` (which git
+# ignores). The paths assume DIE is checked out beside this repository (`../die`); cargo reads a
+# relative path here from this repository's root.
+#
+# The patch builds against your DIE checkout rather than github.com/0xDEADBEE7/die at `main`, so
+# a change to die-core is seen here before it's pushed. Every repository in one build (this one,
+# your config, the other extensions) should patch to the same checkout, or two die-cores meet.
+[patch."https://github.com/0xDEADBEE7/die"]
+die-core = { path = "../die/crates/die-core" }
+die-vim = { path = "../die/crates/die-vim" }
+die-test-cap = { path = "../die/tools/test-cap" }
+
+# Where the tests find DIE's fonts: a DIE checkout's fonts/, which `cargo xtask fonts` fills there.
+[env]
+DIE_FONT_DIR = { value = "../die/fonts", relative = true }

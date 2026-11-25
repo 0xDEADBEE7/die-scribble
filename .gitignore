@@ -1,0 +1,5 @@
+target/
+.DS_Store
+# Local paths for development beside DIE (dev-config.example.toml): never committed.
+.cargo/config.toml
+.claude/

@@ -1,0 +1,5 @@
+# Pinned so rustfmt and clippy can't move under the checks, as DIE pins them. The crate builds
+# with any Rust from Cargo.toml's rust-version up.
+[toolchain]
+channel = "1.96.0"
+components = ["rustfmt", "clippy"]
